@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free On-Page SEO Checker — Instant HTML Audit | Link US Mail</title>
+  <meta name="description" content="Paste your page HTML and get an instant on-page SEO audit: title, meta, headings, images, schema, internal links and more — with a score and prioritized fixes. Free, no signup.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23b91c1c'/%3E%3Crect x='12' y='20' width='40' height='26' rx='3' fill='none' stroke='white' stroke-width='3.5'/%3E%3Cpath d='M13 22l19 14 19-14' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Link US Mail">
+  <meta property="og:title" content="Free On-Page SEO Checker — Instant HTML Audit | Link US Mail">
+  <meta property="og:description" content="Paste your HTML, get an instant on-page SEO audit with score and prioritized fixes. Free, no signup.">
+  <meta property="og:url" content="https://linkusmail.com/tools/on-page-seo-checker/">
+  <link rel="canonical" href="https://linkusmail.com/tools/on-page-seo-checker/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free On-Page SEO Checker",
+    "url": "https://linkusmail.com/tools/on-page-seo-checker/",
+    "applicationCategory": "SEOApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "provider": { "@type": "Organization", "name": "Link US Mail", "url": "https://linkusmail.com/" }
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0b; --bg-elevated: #111113; --bg-card: #161618;
+      --border: #27272a; --border-hover: #3f3f46;
+      --text: #fafafa; --text-muted: #a1a1aa; --text-dim: #71717a;
+      --accent: #b91c1c; --accent-soft: rgba(185,28,28,0.12); --accent-hover: #991b1b;
+      --success: #22c55e; --warn: #f59e0b; --danger: #ef4444;
+      --radius: 12px; --radius-sm: 8px;
+      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+      --font-serif: 'Instrument Serif', Georgia, serif;
+      --max: 1120px; --nav-h: 72px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: var(--nav-h); }
+    body { font-family: var(--font-sans); background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button, input, select, textarea { font: inherit; color: inherit; }
+    ul { list-style: none; }
+    .container { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+    /* Nav */
+    .nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); z-index: 100; background: rgba(10,10,11,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid transparent; transition: border-color .2s, background .2s; }
+    .nav.scrolled { border-bottom-color: var(--border); background: rgba(10,10,11,0.95); }
+    .nav-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+    .logo { font-weight: 700; font-size: 1.05rem; letter-spacing: .04em; }
+    .logo .us { color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a { font-size: .875rem; font-weight: 500; color: var(--text-muted); transition: color .15s; }
+    .nav-links a:hover { color: var(--text); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-weight: 600; font-size: .875rem; border-radius: 999px; padding: 10px 20px; border: none; cursor: pointer; transition: background .15s, color .15s, border-color .15s, transform .15s; }
+    .btn:active { transform: scale(.98); }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent-hover); }
+    .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
+    .btn-secondary:hover { border-color: var(--border-hover); background: var(--bg-elevated); }
+    .nav-cta { display: none; }
+
+    /* Hero */
+    .hero { padding: calc(var(--nav-h) + 72px) 0 72px; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(to right, rgba(39,39,42,.4) 1px, transparent 1px), linear-gradient(to bottom, rgba(39,39,42,.4) 1px, transparent 1px); background-size: 64px 64px; mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 20%, transparent 70%); pointer-events: none; }
+    .hero-inner { position: relative; max-width: 780px; }
+    .hero-tag { display: inline-flex; align-items: center; gap: 8px; font-size: .8125rem; font-weight: 500; color: var(--accent); background: var(--accent-soft); padding: 6px 14px; border-radius: 999px; margin-bottom: 24px; letter-spacing: .02em; }
+    .hero h1 { font-family: var(--font-serif); font-size: clamp(2.5rem, 5.5vw, 3.75rem); font-weight: 400; line-height: 1.1; letter-spacing: -.02em; margin-bottom: 20px; }
+    .hero-sub { font-size: 1.0625rem; color: var(--text-muted); line-height: 1.7; max-width: 660px; margin-bottom: 28px; }
+
+    /* Tool */
+    .tool-section { padding: 0 0 80px; }
+    .tool-wrap { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; }
+    .tool-label { font-size: .8125rem; font-weight: 600; color: var(--text-muted); margin-bottom: 10px; letter-spacing: .04em; }
+    .tool-textarea { width: 100%; min-height: 220px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px; font-size: .875rem; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--text); resize: vertical; outline: none; transition: border-color .15s; }
+    .tool-textarea:focus { border-color: var(--accent); }
+    .tool-options { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 16px; align-items: center; }
+    .tool-input { flex: 1; min-width: 220px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px 14px; font-size: .9375rem; color: var(--text); outline: none; transition: border-color .15s; }
+    .tool-input:focus { border-color: var(--accent); }
+    .tool-actions { display: flex; gap: 12px; margin-top: 16px; flex-wrap: wrap; }
+    .tool-hint { font-size: .8125rem; color: var(--text-dim); margin-top: 12px; line-height: 1.6; }
+
+    /* Results */
+    .results { margin-top: 28px; display: none; }
+    .results.show { display: block; }
+    .score-row { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; margin-bottom: 28px; }
+    .score-ring { width: 120px; height: 120px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-direction: column; border: 6px solid var(--border); position: relative; }
+    .score-ring .num { font-family: var(--font-serif); font-size: 2.25rem; line-height: 1; }
+    .score-ring .of { font-size: .75rem; color: var(--text-dim); margin-top: 2px; }
+    .score-meta h3 { font-size: 1.375rem; font-weight: 600; margin-bottom: 6px; }
+    .score-meta p { font-size: .9375rem; color: var(--text-muted); max-width: 560px; }
+    .pill { display: inline-block; font-size: .75rem; font-weight: 600; padding: 4px 12px; border-radius: 999px; letter-spacing: .03em; }
+    .pill.good { background: rgba(34,197,94,.12); color: var(--success); }
+    .pill.warn { background: rgba(245,158,11,.12); color: var(--warn); }
+    .pill.bad { background: rgba(239,68,68,.12); color: var(--danger); }
+
+    .res-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .res-item { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px 18px; display: flex; gap: 12px; align-items: flex-start; }
+    .res-item .st { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .75rem; font-weight: 700; margin-top: 1px; }
+    .res-item.ok .st { background: rgba(34,197,94,.15); color: var(--success); }
+    .res-item.warn .st { background: rgba(245,158,11,.15); color: var(--warn); }
+    .res-item.err .st { background: rgba(239,68,68,.15); color: var(--danger); }
+    .res-item h4 { font-size: .9375rem; font-weight: 600; margin-bottom: 3px; }
+    .res-item p { font-size: .8125rem; color: var(--text-muted); line-height: 1.55; }
+    .res-item p code { background: var(--bg-card); padding: 1px 5px; border-radius: 4px; font-size: .75rem; }
+
+    /* Fix list */
+    .fix-section { margin-top: 32px; }
+    .fix-section h3 { font-size: 1.125rem; font-weight: 600; margin-bottom: 16px; }
+    .fix-col { margin-bottom: 20px; }
+    .fix-col-title { font-size: .8125rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 10px; }
+    .fix-col.p0 .fix-col-title { color: var(--danger); }
+    .fix-col.p1 .fix-col-title { color: var(--warn); }
+    .fix-col.p2 .fix-col-title { color: var(--text-muted); }
+    .fix-list { display: flex; flex-direction: column; gap: 8px; }
+    .fix-list li { display: flex; gap: 10px; align-items: flex-start; font-size: .875rem; color: var(--text-muted); background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px 16px; line-height: 1.55; }
+
+    /* CTA band */
+    .cta-band { background: var(--bg-elevated); border-top: 1px solid var(--border); padding: 72px 0; }
+    .cta-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; }
+    .cta-copy h2 { font-family: var(--font-serif); font-size: clamp(1.875rem, 3.5vw, 2.5rem); font-weight: 400; letter-spacing: -.02em; margin-bottom: 14px; }
+    .cta-copy > p { color: var(--text-muted); font-size: 1rem; line-height: 1.7; margin-bottom: 22px; }
+    .cta-points { display: flex; flex-direction: column; gap: 12px; }
+    .cta-points li { display: flex; align-items: flex-start; gap: 10px; font-size: .9375rem; color: var(--text-muted); }
+    .cta-points li svg { flex-shrink: 0; width: 18px; height: 18px; color: var(--success); margin-top: 3px; }
+    .form-wrap { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 36px 32px; }
+    .form-wrap h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 6px; }
+    .form-wrap > p { font-size: .875rem; color: var(--text-dim); margin-bottom: 24px; }
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; font-size: .8125rem; font-weight: 500; color: var(--text-muted); margin-bottom: 8px; }
+    .form-group input, .form-group textarea { width: 100%; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px 14px; font-size: .9375rem; color: var(--text); outline: none; transition: border-color .15s; }
+    .form-group input:focus, .form-group textarea:focus { border-color: var(--accent); }
+    .form-group textarea { min-height: 80px; resize: vertical; }
+    .form-submit { width: 100%; margin-top: 4px; }
+    .form-note { margin-top: 14px; font-size: .8125rem; color: var(--text-dim); text-align: center; }
+    .form-note a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+
+    /* Content */
+    .content-section { padding: 80px 0; }
+    .content-section h2 { font-family: var(--font-serif); font-size: clamp(1.875rem, 3.5vw, 2.5rem); font-weight: 400; letter-spacing: -.02em; margin-bottom: 16px; }
+    .content-section h3 { font-size: 1.125rem; font-weight: 600; margin: 28px 0 10px; }
+    .content-section p { color: var(--text-muted); font-size: 1rem; line-height: 1.75; margin-bottom: 14px; max-width: 760px; }
+    .content-section ul { list-style: none; display: flex; flex-direction: column; gap: 8px; margin: 0 0 14px; }
+    .content-section ul li { display: flex; gap: 10px; align-items: flex-start; font-size: .9375rem; color: var(--text-muted); line-height: 1.6; }
+    .content-section ul li::before { content: '→'; color: var(--accent); flex-shrink: 0; }
+    .content-section .band-note { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; margin-top: 24px; font-size: .9375rem; color: var(--text-muted); line-height: 1.7; }
+
+    footer { border-top: 1px solid var(--border); padding: 40px 0; }
+    .footer-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+    .footer-copy { font-size: .8125rem; color: var(--text-dim); letter-spacing: .02em; }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: .8125rem; color: var(--text-muted); transition: color .15s; }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-email { font-size: .875rem; color: var(--text-muted); font-weight: 500; }
+    .footer-email:hover { color: var(--accent); }
+
+    @media (max-width: 900px) {
+      .res-grid { grid-template-columns: 1fr; }
+      .cta-grid { grid-template-columns: 1fr; gap: 36px; }
+      .tool-wrap { padding: 22px 18px; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-cta { display: inline-flex; }
+      .hero { padding: calc(var(--nav-h) + 44px) 0 56px; }
+      .hero h1 { font-size: 2.25rem; }
+      .score-row { gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo" aria-label="Link US Mail home">LINK<span class="us">US</span>MAIL</a>
+      <nav class="nav-links" aria-label="Main">
+        <a href="/services/">Service system</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#audit">Free audit</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/#start" class="btn btn-primary">Get started</a>
+      </nav>
+      <a href="/#start" class="btn btn-primary nav-cta">Get started</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-inner">
+          <div class="hero-tag">Free SEO tool · No signup · Runs in your browser</div>
+          <h1>On-Page SEO Checker</h1>
+          <p class="hero-sub">Paste any page's HTML and get an instant audit — title, meta, headings, images, schema, internal links and 20+ more checks — with a score and a prioritized fix list. Your code never leaves your browser.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tool -->
+    <section class="tool-section">
+      <div class="container">
+        <div class="tool-wrap">
+          <div class="tool-label">Paste your page HTML (view-source → copy all)</div>
+          <textarea class="tool-textarea" id="htmlInput" placeholder="&lt;!DOCTYPE html&gt;&#10;&lt;html lang=&quot;en&quot;&gt;&#10;  &lt;head&gt;…&lt;/head&gt;&#10;  &lt;body&gt;…&lt;/body&gt;&#10;&lt;/html&gt;" spellcheck="false"></textarea>
+          <div class="tool-options">
+            <input class="tool-input" id="keywordInput" type="text" placeholder="Optional: your target keyword (e.g. “editorial backlinks”)" autocomplete="off">
+            <button class="btn btn-secondary" id="sampleBtn" type="button">Load sample</button>
+          </div>
+          <div class="tool-actions">
+            <button class="btn btn-primary btn-lg" id="runBtn" type="button">Run audit →</button>
+          </div>
+          <p class="tool-hint">Tip: open your page in a browser, press Ctrl+U (Windows) or Cmd+U (Mac), select all and copy. Or use “Load sample” to see how the tool works.</p>
+        </div>
+
+        <!-- Results -->
+        <div class="results" id="results">
+          <div class="score-row">
+            <div class="score-ring" id="scoreRing">
+              <span class="num" id="scoreNum">0</span>
+              <span class="of">/ 100</span>
+            </div>
+            <div class="score-meta">
+              <h3 id="scoreTitle">Audit complete</h3>
+              <p id="scoreSummary"></p>
+              <div style="margin-top:10px;" id="scorePill"></div>
+            </div>
+          </div>
+          <div class="res-grid" id="resGrid"></div>
+          <div class="fix-section" id="fixSection"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-band" id="audit-cta">
+      <div class="container">
+        <div class="cta-grid">
+          <div class="cta-copy">
+            <h2>Need the full picture? Backlinks, keywords, competitors.</h2>
+            <p>This checker covers on-page basics. A real US market audit also looks at your backlink profile, keyword difficulty and the pages competing against you — the parts that decide whether your on-page work actually ranks.</p>
+            <ul class="cta-points">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Backlink profile review — who links to you, and what it's worth</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>US keyword gaps — the words you could rank for but don't</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Three fixes ranked by impact — in plain English, in 48 hours</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>No spam, no obligation — it's our way of introducing the system</li>
+            </ul>
+          </div>
+          <div class="form-wrap">
+            <h3>Get your free US market audit</h3>
+            <p>Drop your site. We reply by mail within 48 hours.</p>
+            <form id="auditForm">
+              <div class="form-group">
+                <label for="auditUrl">Website</label>
+                <input type="url" id="auditUrl" name="auditUrl" required placeholder="https://yoursite.com">
+              </div>
+              <div class="form-group">
+                <label for="auditEmail">Email</label>
+                <input type="email" id="auditEmail" name="auditEmail" required autocomplete="email" placeholder="you@company.com">
+              </div>
+              <button type="submit" class="btn btn-primary form-submit">Get my free audit →</button>
+              <p class="form-note">Sent straight from <a href="mailto:hello@linkusmail.com">hello@linkusmail.com</a>. Unsubscribe anytime.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content -->
+    <section class="content-section">
+      <div class="container">
+        <h2>What the checker looks at</h2>
+        <p>On-page SEO is everything a search engine reads on your page before it decides where you rank. Most of it lives in the HTML — and most of it is fixable in an afternoon. The checker scores the checks below; the fix list tells you what to change first.</p>
+        <h3>The checks</h3>
+        <ul>
+          <li><strong>Title tag</strong> — present, unique, right length (under ~60 characters), with your keyword near the front</li>
+          <li><strong>Meta description</strong> — present and under ~155 characters (not a ranking factor, but the #1 click-through lever)</li>
+          <li><strong>H1</strong> — exactly one, containing your core keyword (search engines read it as the page's theme)</li>
+          <li><strong>Heading hierarchy</strong> — H1 → H2 → H3 in order, no skipped levels</li>
+          <li><strong>Image alt text</strong> — every image described; missing alt = lost Google Images traffic</li>
+          <li><strong>Canonical</strong> — self-referencing canonical prevents duplicate-content dilution</li>
+          <li><strong>Structured data</strong> — JSON-LD schema helps search engines understand and display your page</li>
+          <li><strong>Internal links</strong> — links to your own pages pass authority and guide crawlers</li>
+          <li><strong>Language, viewport, robots</strong> — the technical basics that gate everything else</li>
+        </ul>
+        <h3>Why on-page alone isn't enough</h3>
+        <p>On-page SEO tells Google what your page is about. Off-page SEO — the backlinks pointing at it — tells Google whether anyone believes you. A perfect page with no backlinks rarely outranks a good page with authority. That's why our service system pairs clean on-page work with editorial backlinks from American publishers: content tells the story, links make it credible.</p>
+        <div class="band-note">
+          <strong>About this tool:</strong> analysis runs entirely in your browser — your HTML is never uploaded. It covers the on-page basics. For backlink analysis, keyword difficulty and competitor pages, use the free audit form above. See our <a href="/services/" style="color:var(--accent);">service system</a> for how placements are earned.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-copy">© 2026 LINK US MAIL — US BACKLINKS, SECURED BY MAIL</span>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="/">Home</a>
+          <a href="/services/">Service system</a>
+          <a href="/tools/on-page-seo-checker/">SEO checker</a>
+          <a href="/#audit">Free audit</a>
+        </nav>
+        <a class="footer-email" href="mailto:hello@linkusmail.com">hello@linkusmail.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll border
+    const nav = document.getElementById('nav');
+    addEventListener('scroll', () => { nav.classList.toggle('scrolled', scrollY > 8); }, { passive: true });
+
+    // Sample HTML
+    const SAMPLE = '<!DOCTYPE html>\n<html lang="en">\n<head>\n  <meta charset="UTF-8">\n  <meta name="viewport" content="width=device-width, initial-scale=1.0">\n  <title>Free PDF to Word Converter — Online & Fast</title>\n  <meta name="description" content="Convert PDF to Word online for free. No signup, no upload limits, 100% secure. Try our fast PDF to DOCX converter now.">\n  <link rel="canonical" href="https://example.com/pdf-to-word/">\n  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"PDF to Word Converter"}<\/script>\n</head>\n<body>\n  <h1>Free PDF to Word Converter</h1>\n  <p>Convert any PDF to an editable Word document in seconds.</p>\n  <img src="logo.png" alt="PDF to Word Converter logo">\n  <h2>How to convert PDF to Word</h2>\n  <p>Upload your file and click convert.</p>\n  <h2>Why use our converter</h2>\n  <p>Fast, free and private.</p>\n  <h3>Security first</h3>\n  <p>Files are deleted after conversion.</p>\n  <a href="/">Home</a> <a href="/contact">Contact</a>\n</body>\n</html>';
+
+    document.getElementById('sampleBtn').addEventListener('click', () => {
+      document.getElementById('htmlInput').value = SAMPLE;
+    });
+
+    // Audit engine
+    function esc(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+    function trunc(s, n) { return s.length > n ? s.slice(0, n) + '…' : s; }
+
+    function runAudit() {
+      const raw = document.getElementById('htmlInput').value;
+      const kw = document.getElementById('keywordInput').value.trim().toLowerCase();
+      const resultsEl = document.getElementById('results');
+      const resGrid = document.getElementById('resGrid');
+      const fixSection = document.getElementById('fixSection');
+      resGrid.innerHTML = '';
+      fixSection.innerHTML = '';
+      if (!raw || raw.trim().length < 50) {
+        alert('Please paste your page HTML first (at least a few lines).');
+        return;
+      }
+
+      const doc = new DOMParser().parseFromString(raw, 'text/html');
+      const items = [];
+      const fixes = { p0: [], p1: [], p2: [] };
+      let score = 100;
+
+      function add(name, status, detail) {
+        items.push({ name, status, detail });
+      }
+      function penalty(points, level, fix) {
+        score -= points;
+        if (fix) fixes[level].push(fix);
+      }
+
+      // 1. Title
+      const title = doc.querySelector('title');
+      const titleText = title ? title.textContent.trim() : '';
+      if (!titleText) { add('Title tag', 'err', 'Missing <code>&lt;title&gt;</code> — the most important on-page element.'); penalty(12, 'p0', 'Add a unique <code>&lt;title&gt;</code> under 60 characters with your main keyword near the front.'); }
+      else if (titleText.length > 70) { add('Title tag', 'warn', 'Title is ' + titleText.length + ' chars (recommended ≤ 60). ' + trunc(esc(titleText), 90)); penalty(5, 'p1', 'Shorten the title to ~60 characters and move the primary keyword closer to the start.'); }
+      else { add('Title tag', 'ok', 'Present, ' + titleText.length + ' chars. ' + trunc(esc(titleText), 90)); if (kw && !titleText.toLowerCase().includes(kw)) { penalty(3, 'p2', 'Target keyword “' + esc(kw) + '” not found in the title — consider including it.'); } }
+
+      // 2. Meta description
+      const desc = doc.querySelector('meta[name="description"]');
+      const descText = desc ? (desc.getAttribute('content') || '').trim() : '';
+      if (!descText) { add('Meta description', 'warn', 'Missing. Not a ranking factor, but controls click-through from search results.'); penalty(5, 'p1', 'Add a meta description under 155 characters that summarizes the page and invites the click.'); }
+      else if (descText.length > 170) { add('Meta description', 'warn', 'Too long (' + descText.length + ' chars). May be truncated in results.'); penalty(2, 'p2', 'Trim the meta description to under 155 characters.'); }
+      else { add('Meta description', 'ok', 'Present, ' + descText.length + ' chars.'); }
+
+      // 3. Meta keywords (informational)
+      const mk = doc.querySelector('meta[name="keywords"]');
+      add('Meta keywords', mk ? 'warn' : 'ok', mk ? 'Present — Google ignores it; harmless but unnecessary.' : 'Absent — correct, Google ignores this tag.');
+
+      // 4. H1
+      const h1s = doc.querySelectorAll('h1');
+      if (h1s.length === 0) { add('H1 heading', 'err', 'No <code>&lt;h1&gt;</code> found — search engines use it to identify the page topic.'); penalty(12, 'p0', 'Add exactly one H1 containing your core keyword.'); }
+      else if (h1s.length > 1) { add('H1 heading', 'warn', h1s.length + ' H1s found — keep exactly one for a clear topic signal.'); penalty(4, 'p1', 'Keep a single H1; demote the others to H2/H3.'); }
+      else {
+        const h1t = h1s[0].textContent.trim();
+        add('H1 heading', 'ok', 'One H1: ' + trunc(esc(h1t), 80));
+        if (kw && !h1t.toLowerCase().includes(kw)) { penalty(3, 'p2', 'Target keyword not in the H1 — the H1 should state the page topic.'); }
+      }
+
+      // 5. Heading hierarchy
+      const heads = doc.querySelectorAll('h1,h2,h3,h4,h5,h6');
+      let last = 0, hierOk = true;
+      heads.forEach(h => {
+        const lvl = parseInt(h.tagName[1], 10);
+        if (lvl - last > 1) hierOk = false;
+        last = lvl;
+      });
+      add('Heading hierarchy', hierOk ? 'ok' : 'warn', hierOk ? 'H1→H2→H3 in order.' : 'Skipped levels detected (e.g. H1→H3).');
+      if (!hierOk) penalty(3, 'p2', 'Avoid skipping heading levels — keep a logical H1→H2→H3 structure.');
+
+      // 6. Images alt
+      const imgs = doc.querySelectorAll('img');
+      let noAlt = 0;
+      imgs.forEach(i => { if (!i.getAttribute('alt')) noAlt++; });
+      if (imgs.length === 0) { add('Image alt text', 'ok', 'No images to check.'); }
+      else if (noAlt === 0) { add('Image alt text', 'ok', 'All ' + imgs.length + ' images have alt text.'); }
+      else { add('Image alt text', 'warn', noAlt + ' of ' + imgs.length + ' images missing alt text.'); penalty(4, 'p1', 'Add descriptive alt text to all images (also helps Google Images traffic).'); }
+
+      // 7. Canonical
+      const canon = doc.querySelector('link[rel="canonical"]');
+      const canonHref = canon ? (canon.getAttribute('href') || '') : '';
+      if (!canonHref) { add('Canonical', 'warn', 'Missing — duplicate URLs may split your ranking power.'); penalty(4, 'p1', 'Add a self-referencing <code>&lt;link rel="canonical"&gt;</code> pointing at the page’s own URL.'); }
+      else { add('Canonical', 'ok', 'Set: ' + trunc(esc(canonHref), 70)); }
+
+      // 8. Structured data
+      const jsonld = doc.querySelectorAll('script[type="application/ld+json"]');
+      add('Structured data', jsonld.length > 0 ? 'ok' : 'warn', jsonld.length > 0 ? jsonld.length + ' JSON-LD block(s) found.' : 'None found — schema helps rich results.');
+      if (jsonld.length === 0) penalty(3, 'p2', 'Add JSON-LD structured data (WebApplication, Product, Article, etc.) relevant to the page.');
+
+      // 9. Lang
+      const lang = doc.documentElement.getAttribute('lang');
+      add('Language attribute', lang ? 'ok' : 'warn', lang ? '<code>lang="' + esc(lang) + '"</code>' : 'Missing <code>lang</code> attribute on <code>&lt;html&gt;</code>.');
+      if (!lang) penalty(2, 'p2', 'Add <code>lang</code> to the html tag (e.g. <code>lang="en"</code>).');
+
+      // 10. Viewport
+      const vp = doc.querySelector('meta[name="viewport"]');
+      add('Mobile viewport', vp ? 'ok' : 'err', vp ? 'Present.' : 'Missing — mobile traffic over 50% for most sites; Google is mobile-first.');
+      if (!vp) penalty(8, 'p0', 'Add <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</code>.');
+
+      // 11. Robots
+      const robots = doc.querySelector('meta[name="robots"]');
+      const robotsContent = robots ? (robots.getAttribute('content') || '') : '';
+      let robotsOk = true;
+      if (robotsContent && /noindex/i.test(robotsContent)) robotsOk = false;
+      add('Robots meta', robotsOk ? 'ok' : 'err', robotsOk ? (robotsContent ? 'Present: ' + esc(robotsContent) : 'No restrictions found.') : 'NOINDEX detected — this page is telling Google not to index it!');
+      if (!robotsOk) penalty(10, 'p0', 'Remove <code>noindex</code> from the robots meta (unless intentionally hidden).');
+
+      // 12. Open Graph
+      const og = doc.querySelector('meta[property="og:title"]');
+      add('Open Graph tags', og ? 'ok' : 'p2' ? 'warn' : 'warn', og ? 'og:title present — social shares will look right.' : 'Missing — shared links on social media will show a bare URL.');
+      if (!og) penalty(2, 'p2', 'Add basic Open Graph tags (og:title, og:description, og:image) for social sharing.');
+
+      // 13. Word count
+      const body = doc.body ? doc.body.textContent.trim() : '';
+      const words = body ? body.split(/\s+/).length : 0;
+      if (words < 100) { add('Content length', 'warn', '~' + words + ' words of visible text — thin content is hard to rank.'); penalty(5, 'p1', 'Add substantive, original content — aim for at least 300 words with real value.'); }
+      else if (words < 300) { add('Content length', 'warn', '~' + words + ' words — workable, but thin for competitive terms.'); penalty(2, 'p2', 'Expand the content; tool pages still need descriptive text around the tool.'); }
+      else { add('Content length', 'ok', '~' + words + ' words of visible text.'); }
+
+      // 14. Internal links
+      const links = doc.querySelectorAll('a[href]');
+      let internal = 0, external = 0;
+      links.forEach(a => {
+        const h = a.getAttribute('href') || '';
+        if (h.startsWith('#') || h.startsWith('javascript:')) return;
+        if (/^https?:\/\//i.test(h)) external++; else internal++;
+      });
+      add('Internal links', internal >= 3 ? 'ok' : 'warn', internal + ' internal, ' + external + ' external link(s).');
+      if (internal < 3) penalty(3, 'p2', 'Add internal links to your most important pages (home, category, related tools) with keyword anchor text.');
+
+      // 15. Favicon
+      const fav = doc.querySelector('link[rel="icon"], link[rel="shortcut icon"]');
+      add('Favicon', fav ? 'ok' : 'warn', fav ? 'Present.' : 'Missing — a favicon improves credibility in browser tabs and SERPs.');
+      if (!fav) penalty(1, 'p2', 'Add a favicon.');
+
+      // 16. Keyword density (soft signal)
+      if (kw) {
+        const bodyLower = body.toLowerCase();
+        const kc = bodyLower.split(kw).length - 1;
+        add('Keyword usage', kc > 0 ? 'ok' : 'warn', '“' + esc(kw) + '” appears ' + kc + ' time(s) in visible text.');
+        if (kc === 0) penalty(3, 'p2', 'Mention the target keyword naturally in the content (title, H1, first paragraph, body).');
+      }
+
+      // Render
+      const pillEl = document.getElementById('scorePill');
+      document.getElementById('scoreNum').textContent = Math.max(0, score);
+      const ring = document.getElementById('scoreRing');
+      ring.style.borderColor = score >= 80 ? 'var(--success)' : score >= 55 ? 'var(--warn)' : 'var(--danger)';
+      if (score >= 80) { pillEl.innerHTML = '<span class="pill good">Solid — minor polish will help</span>'; document.getElementById('scoreSummary').textContent = 'Your page covers the on-page basics well. Fix the small items below and then focus on authority (backlinks).'; }
+      else if (score >= 55) { pillEl.innerHTML = '<span class="pill warn">Workable — fix the warnings</span>'; document.getElementById('scoreSummary').textContent = 'A few important elements need attention. Fix the P0/P1 items first — they gate how well Google can read your page.'; }
+      else { pillEl.innerHTML = '<span class="pill bad">Needs work — start with P0</span>'; document.getElementById('scoreSummary').textContent = 'Critical elements are missing. Fix the P0 items first; they block indexing and clear topic signals.'; }
+
+      resGrid.innerHTML = items.map(it => {
+        const cls = it.status === 'ok' ? 'ok' : it.status === 'warn' ? 'warn' : 'err';
+        const mark = it.status === 'ok' ? '✓' : it.status === 'warn' ? '!' : '✕';
+        return '<div class="res-item ' + cls + '"><span class="st">' + mark + '</span><div><h4>' + esc(it.name) + '</h4><p>' + it.detail + '</p></div></div>';
+      }).join('');
+
+      const fixHtml = (level, title, color) => {
+        const list = fixes[level];
+        if (!list.length) return '';
+        return '<div class="fix-col ' + level + '"><div class="fix-col-title" style="color:' + color + '">' + title + ' (' + list.length + ')</div><ul class="fix-list">' + list.map(f => '<li>' + f + '</li>').join('') + '</ul></div>';
+      };
+      fixSection.innerHTML = '<h3>Prioritized fixes</h3>' + fixHtml('p0', 'P0 — fix first (blocks indexing)', 'var(--danger)') + fixHtml('p1', 'P1 — important (affects rankings & clicks)', 'var(--warn)') + fixHtml('p2', 'P2 — polish (nice to have)', 'var(--text-muted)');
+
+      resultsEl.classList.add('show');
+      if (resultsEl.scrollIntoView) resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    document.getElementById('runBtn').addEventListener('click', runAudit);
+    document.getElementById('htmlInput').addEventListener('keydown', e => {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') runAudit();
+    });
+
+    // Audit form → prefilled mailto
+    document.getElementById('auditForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const url = document.getElementById('auditUrl').value;
+      const email = document.getElementById('auditEmail').value;
+      const subject = encodeURIComponent('Free SEO audit request — ' + url);
+      const body = encodeURIComponent('Website: ' + url + '\nEmail: ' + email + '\n\nI ran the on-page checker and want the full US market audit (backlinks + keywords + competitors).');
+      location.href = 'mailto:hello@linkusmail.com?subject=' + subject + '&body=' + body;
+    });
+  </script>
+</body>
+</html>
