@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KGR & KDROI Calculator — Pick Winnable Keywords | Link US Mail</title>
+  <meta name="description" content="Score keyword opportunities with KGR (Keyword Golden Ratio) and KDROI (value ÷ difficulty) in one calculator. Free, transparent math, runs in your browser.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23b91c1c'/%3E%3Crect x='12' y='20' width='40' height='26' rx='3' fill='none' stroke='white' stroke-width='3.5'/%3E%3Cpath d='M13 22l19 14 19-14' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Link US Mail">
+  <meta property="og:title" content="KGR & KDROI Calculator — Pick Winnable Keywords | Link US Mail">
+  <meta property="og:url" content="https://linkusmail.com/tools/kgr-kdroi-calculator/">
+  <link rel="canonical" href="https://linkusmail.com/tools/kgr-kdroi-calculator/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "KGR & KDROI Calculator",
+    "url": "https://linkusmail.com/tools/kgr-kdroi-calculator/",
+    "applicationCategory": "SEOApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "provider": { "@type": "Organization", "name": "Link US Mail", "url": "https://linkusmail.com/" }
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg:#0a0a0b; --bg-elevated:#111113; --bg-card:#161618; --border:#27272a; --border-hover:#3f3f46; --text:#fafafa; --text-muted:#a1a1aa; --text-dim:#71717a; --accent:#b91c1c; --accent-soft:rgba(185,28,28,.12); --accent-hover:#991b1b; --success:#22c55e; --warn:#f59e0b; --danger:#ef4444; --radius:12px; --radius-sm:8px; --font-sans:'Inter',system-ui,-apple-system,sans-serif; --font-serif:'Instrument Serif',Georgia,serif; --max:1120px; --nav-h:72px; }
+    *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; scroll-padding-top:var(--nav-h); }
+    body { font-family:var(--font-sans); background:var(--bg); color:var(--text); line-height:1.6; -webkit-font-smoothing:antialiased; }
+    a { color:inherit; text-decoration:none; }
+    button,input { font:inherit; color:inherit; }
+    ul { list-style:none; }
+    .container { width:100%; max-width:var(--max); margin:0 auto; padding:0 24px; }
+    .nav { position:fixed; top:0; left:0; right:0; height:var(--nav-h); z-index:100; background:rgba(10,10,11,.85); backdrop-filter:blur(12px); border-bottom:1px solid transparent; transition:border-color .2s; }
+    .nav.scrolled { border-bottom-color:var(--border); background:rgba(10,10,11,.95); }
+    .nav-inner { height:100%; display:flex; align-items:center; justify-content:space-between; max-width:var(--max); margin:0 auto; padding:0 24px; }
+    .logo { font-weight:700; font-size:1.05rem; letter-spacing:.04em; }
+    .logo .us { color:var(--accent); }
+    .nav-links { display:flex; align-items:center; gap:28px; }
+    .nav-links a { font-size:.875rem; font-weight:500; color:var(--text-muted); transition:color .15s; }
+    .nav-links a:hover { color:var(--text); }
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; font-weight:600; font-size:.875rem; border-radius:999px; padding:10px 20px; border:none; cursor:pointer; transition:background .15s, transform .15s; }
+    .btn:active { transform:scale(.98); }
+    .btn-primary { background:var(--accent); color:#fff; }
+    .btn-primary:hover { background:var(--accent-hover); }
+    .btn-lg { padding:14px 28px; font-size:.9375rem; }
+    .hero { padding:calc(var(--nav-h) + 72px) 0 64px; position:relative; overflow:hidden; }
+    .hero::before { content:''; position:absolute; inset:0; background-image:linear-gradient(to right, rgba(39,39,42,.4) 1px, transparent 1px), linear-gradient(to bottom, rgba(39,39,42,.4) 1px, transparent 1px); background-size:64px 64px; mask-image:radial-gradient(ellipse 80% 60% at 50% 0%, black 20%, transparent 70%); pointer-events:none; }
+    .hero-inner { position:relative; max-width:780px; }
+    .hero-tag { display:inline-flex; align-items:center; gap:8px; font-size:.8125rem; font-weight:500; color:var(--accent); background:var(--accent-soft); padding:6px 14px; border-radius:999px; margin-bottom:24px; letter-spacing:.02em; }
+    .hero h1 { font-family:var(--font-serif); font-size:clamp(2.5rem, 5.5vw, 3.75rem); font-weight:400; line-height:1.1; letter-spacing:-.02em; margin-bottom:20px; }
+    .hero-sub { font-size:1.0625rem; color:var(--text-muted); line-height:1.7; max-width:660px; margin-bottom:28px; }
+    .tool-section { padding:0 0 80px; }
+    .tool-wrap { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:32px; }
+    .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    .form-group label { display:block; font-size:.8125rem; font-weight:500; color:var(--text-muted); margin-bottom:8px; }
+    .form-group input { width:100%; background:var(--bg); border:1px solid var(--border); border-radius:var(--radius-sm); padding:12px 14px; font-size:.9375rem; color:var(--text); outline:none; transition:border-color .15s; }
+    .form-group input:focus { border-color:var(--accent); }
+    .form-group .hint { font-size:.75rem; color:var(--text-dim); margin-top:6px; }
+    .tool-actions { margin-top:24px; display:flex; gap:12px; flex-wrap:wrap; }
+    .result-box { margin-top:28px; background:var(--bg); border:1px solid var(--border); border-radius:var(--radius); padding:28px; display:none; }
+    .result-box.show { display:block; }
+    .result-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:24px; }
+    .result-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-sm); padding:20px; }
+    .result-card .lbl { font-size:.75rem; font-weight:600; color:var(--text-dim); text-transform:uppercase; letter-spacing:.06em; margin-bottom:8px; }
+    .result-card .val { font-family:var(--font-serif); font-size:1.75rem; letter-spacing:-.01em; }
+    .result-card .sub { font-size:.8125rem; color:var(--text-muted); margin-top:4px; }
+    .verdict { padding:16px 20px; border-radius:var(--radius-sm); font-size:.9375rem; line-height:1.65; }
+    .verdict.green { background:rgba(34,197,94,.1); color:var(--success); border:1px solid rgba(34,197,94,.3); }
+    .verdict.amber { background:rgba(245,158,11,.1); color:var(--warn); border:1px solid rgba(245,158,11,.3); }
+    .verdict.red { background:rgba(239,68,68,.1); color:var(--danger); border:1px solid rgba(239,68,68,.3); }
+    .cta-band { background:var(--bg-elevated); border-top:1px solid var(--border); padding:72px 0; }
+    .cta-inner { max-width:760px; margin:0 auto; text-align:center; }
+    .cta-inner h2 { font-family:var(--font-serif); font-size:clamp(1.875rem, 3.5vw, 2.5rem); font-weight:400; letter-spacing:-.02em; margin-bottom:14px; }
+    .cta-inner p { color:var(--text-muted); font-size:1rem; line-height:1.7; margin-bottom:28px; }
+    .content-section { padding:80px 0; }
+    .content-section h2 { font-family:var(--font-serif); font-size:clamp(1.875rem, 3.5vw, 2.5rem); font-weight:400; letter-spacing:-.02em; margin-bottom:16px; }
+    .content-section h3 { font-size:1.125rem; font-weight:600; margin:28px 0 10px; }
+    .content-section p { color:var(--text-muted); font-size:1rem; line-height:1.75; margin-bottom:14px; max-width:760px; }
+    .content-section ul { display:flex; flex-direction:column; gap:8px; margin-bottom:14px; }
+    .content-section ul li { display:flex; gap:10px; align-items:flex-start; font-size:.9375rem; color:var(--text-muted); line-height:1.6; }
+    .content-section ul li::before { content:'→'; color:var(--accent); flex-shrink:0; }
+    .band-note { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:20px 24px; margin-top:24px; font-size:.9375rem; color:var(--text-muted); line-height:1.7; }
+    footer { border-top:1px solid var(--border); padding:40px 0; }
+    .footer-inner { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px; }
+    .footer-copy { font-size:.8125rem; color:var(--text-dim); letter-spacing:.02em; }
+    .footer-links { display:flex; gap:24px; }
+    .footer-links a { font-size:.8125rem; color:var(--text-muted); transition:color .15s; }
+    .footer-links a:hover { color:var(--accent); }
+    .footer-email { font-size:.875rem; color:var(--text-muted); font-weight:500; }
+    .footer-email:hover { color:var(--accent); }
+    @media (max-width:900px) { .form-grid{grid-template-columns:1fr;} .result-grid{grid-template-columns:1fr;} }
+    @media (max-width:768px) { .nav-links{display:none;} .hero{padding:calc(var(--nav-h) + 44px) 0 56px;} .hero h1{font-size:2.25rem;} .tool-wrap{padding:22px 18px;} }
+  </style>
+</head>
+<body>
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo" aria-label="Link US Mail home">LINK<span class="us">US</span>MAIL</a>
+      <nav class="nav-links" aria-label="Main">
+        <a href="/services/">Service system</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#audit">Free audit</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/#start" class="btn btn-primary">Get started</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-inner">
+          <div class="hero-tag">Free keyword scoring tool</div>
+          <h1>KGR & KDROI Calculator</h1>
+          <p class="hero-sub">Two quick formulas for choosing keywords worth building pages for. KGR finds low-competition long-tails; KDROI ranks opportunities by value per unit of difficulty. Enter your numbers, see the verdict.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="tool-section">
+      <div class="container">
+        <div class="tool-wrap">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="volume">Monthly search volume</label>
+              <input type="number" id="volume" min="0" placeholder="300" value="300">
+            </div>
+            <div class="form-group">
+              <label for="allintitle">Allintitle results (search: allintitle:"keyword")</label>
+              <input type="number" id="allintitle" min="0" placeholder="40" value="40">
+              <div class="hint">Google the exact phrase with quotes, note the result count</div>
+            </div>
+            <div class="form-group">
+              <label for="kd">Keyword difficulty KD (0–100)</label>
+              <input type="number" id="kd" min="0" max="100" placeholder="25" value="25">
+              <div class="hint">From a paid tool or our difficulty checker</div>
+            </div>
+            <div class="form-group">
+              <label for="cpc">CPC — cost per click (USD)</label>
+              <input type="number" id="cpc" min="0" step="0.01" placeholder="1.5" value="1.5">
+              <div class="hint">Advertiser value of a click; from keyword tools</div>
+            </div>
+          </div>
+          <div class="tool-actions">
+            <button class="btn btn-primary btn-lg" id="calcBtn" type="button">Score keyword →</button>
+          </div>
+        </div>
+
+        <div class="result-box" id="resultBox">
+          <div class="result-grid">
+            <div class="result-card">
+              <div class="lbl">KGR</div>
+              <div class="val" id="rKgr">—</div>
+              <div class="sub">volume ÷ allintitle</div>
+            </div>
+            <div class="result-card">
+              <div class="lbl">KDROI</div>
+              <div class="val" id="rKdroi">—</div>
+              <div class="sub">(volume × CPC) ÷ KD</div>
+            </div>
+            <div class="result-card">
+              <div class="lbl">Verdict</div>
+              <div class="val" id="rVerdict" style="font-size:1.25rem;font-family:var(--font-sans);font-weight:600;">—</div>
+              <div class="sub" id="rVerdictSub"></div>
+            </div>
+          </div>
+          <div class="verdict" id="rNote"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container">
+        <div class="cta-inner">
+          <h2>Winnable keyword found? The page still needs authority.</h2>
+          <p>Even low-difficulty keywords reward sites that look credible. A couple of editorial backlinks from real US publishers can be the difference between page 1 and page 3.</p>
+          <a href="/#audit" class="btn btn-secondary btn-lg">Get the free audit</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="container">
+        <h2>The two formulas</h2>
+        <ul>
+          <li><strong>KGR = monthly searches ÷ allintitle results.</strong> Under 0.25 = strong opportunity; 0.25–1 = possible; over 1 = weak. Use with long-tail keywords under ~250 monthly searches.</li>
+          <li><strong>KDROI = (volume × CPC) ÷ KD.</strong> Higher is better — it ranks keywords by value-per-difficulty. Sort a candidate list by KDROI and build pages from the top down.</li>
+        </ul>
+        <div class="band-note">
+          <strong>Honest caveat:</strong> both formulas are heuristics, not guarantees. Always sanity-check the actual SERP (see our <a href="/tools/keyword-difficulty-checker/" style="color:var(--accent);">difficulty checker</a>) before committing — and remember the page still needs to be genuinely better than what's ranking.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-copy">© 2026 LINK US MAIL — US BACKLINKS, SECURED BY MAIL</span>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="/">Home</a>
+          <a href="/services/">Service system</a>
+          <a href="/tools/kgr-kdroi-calculator/">KGR/KDROI</a>
+        </nav>
+        <a class="footer-email" href="mailto:hello@linkusmail.com">hello@linkusmail.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    addEventListener('scroll', () => { nav.classList.toggle('scrolled', scrollY > 8); }, { passive: true });
+
+    document.getElementById('calcBtn').addEventListener('click', () => {
+      const vol = parseFloat(document.getElementById('volume').value) || 0;
+      const ait = parseFloat(document.getElementById('allintitle').value) || 0;
+      const kd = parseFloat(document.getElementById('kd').value) || 0;
+      const cpc = parseFloat(document.getElementById('cpc').value) || 0;
+      const box = document.getElementById('resultBox');
+
+      const kgr = ait > 0 ? vol / ait : (vol > 0 ? Infinity : 0);
+      const kdroi = kd > 0 ? (vol * cpc) / kd : Infinity;
+      document.getElementById('rKgr').textContent = kgr === Infinity ? '∞' : kgr.toFixed(2);
+      document.getElementById('rKdroi').textContent = kdroi === Infinity ? '∞' : kdroi.toFixed(1);
+
+      const verdict = document.getElementById('rVerdict');
+      const note = document.getElementById('rNote');
+      const sub = document.getElementById('rVerdictSub');
+
+      if (kgr < 0.25 && kdroi > 20) {
+        verdict.textContent = 'Strong opportunity';
+        verdict.style.color = 'var(--success)';
+        sub.textContent = 'low competition + high value';
+        note.className = 'verdict green';
+        note.innerHTML = '<strong>Go:</strong> low allintitle competition with solid commercial value. Build the page, make it genuinely useful, and add a couple of editorial backlinks to accelerate the first rankings.';
+      } else if (kgr < 1 && kdroi > 8) {
+        verdict.textContent = 'Worth testing';
+        verdict.style.color = 'var(--warn)';
+        sub.textContent = 'moderate competition, decent value';
+        note.className = 'verdict amber';
+        note.innerHTML = '<strong>Consider:</strong> winnable but not free. Expect a few months of consistent work — content quality and 2–5 quality links will decide it.';
+      } else {
+        verdict.textContent = 'Look elsewhere';
+        verdict.style.color = 'var(--danger)';
+        sub.textContent = 'competition outweighs value';
+        note.className = 'verdict red';
+        note.innerHTML = '<strong>Skip:</strong> either the SERP is crowded (high allintitle) or the commercial value is too low. Generate more candidates and re-score — see the <a href="/tools/keyword-idea-generator/" style="color:var(--accent);">keyword idea generator</a>.';
+      }
+
+      box.classList.add('show');
+      if (box.scrollIntoView) box.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  </script>
+</body>
+</html>
